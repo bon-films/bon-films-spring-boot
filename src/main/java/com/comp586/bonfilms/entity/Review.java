@@ -25,6 +25,9 @@ public class Review {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "film_name")
+    private String filmName;
+
     @Column(name = "rating")
     private Long rating;
 
