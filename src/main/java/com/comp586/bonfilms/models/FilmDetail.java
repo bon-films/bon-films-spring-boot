@@ -1,14 +1,10 @@
-package com.comp586.bonfilms.entity;
+package com.comp586.bonfilms.models;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -21,7 +17,7 @@ public class FilmDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "film_name")
     private String filmName;
@@ -41,7 +37,20 @@ public class FilmDetail {
     @Column(name = "synopsis")
     private String synopsis;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "filmDetail")
-    private Set<Review> reviews;
+    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "filmDetail")
+    // private Set<Review> review;
 
+    public FilmDetail() {
+        super();
+    }
+
+    public FilmDetail(String filmName, String genre, String studio, String director, String topBilling,
+            String synopsis) {
+        this.filmName = filmName;
+        this.genre = genre;
+        this.studio = studio;
+        this.director = director;
+        this.topBilling = topBilling;
+        this.synopsis = synopsis;
+    }
 }
