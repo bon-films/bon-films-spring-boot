@@ -18,7 +18,7 @@ public class FilmDetailController {
     @Autowired
     private FilmDetailRepository filmDetailRepository;
 
-    @PostMapping("/new-movie-listing")
+    @PostMapping("/new-film-listing")
     public ResponseEntity<FilmDetail> createReview(@RequestBody Map<String, String> body) throws Exception {
         FilmDetail filmDetail = new FilmDetail(body.get("filmName"), body.get("genre"), body.get("studio"),
                 body.get("director"), body.get("topBilling"), body.get("synopsis"));
