@@ -19,7 +19,7 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    @PostMapping("/reviews")
+    @PostMapping("/create-review")
     public ResponseEntity<Review> createReview(@RequestBody Map<String, String> body) throws Exception {
         Review review = new Review(body.get("filmName"), body.get("rating"), body.get("review"),
                 body.get("userReviewedId"), body.get("filmDetail"));
