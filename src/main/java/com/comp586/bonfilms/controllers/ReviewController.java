@@ -32,9 +32,9 @@ public class ReviewController {
     public ResponseEntity<Review> getReviewById(@PathVariable("id") int id) {
         Optional<Review> reviewData = reviewRepository.findById(id);
         if (reviewData.isPresent()) {
-            return new ResponseEntity<>(reviewData.get(), HttpStatus.OK);
+            return new ResponseEntity<Review>(reviewData.get(), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Review>(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -54,7 +54,7 @@ public class ReviewController {
             review.setReview(body.get("review"));
             return new ResponseEntity<Review>(reviewRepository.save(review), HttpStatus.CREATED);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Review>(HttpStatus.NOT_FOUND);
         }
     }
 
@@ -66,7 +66,7 @@ public class ReviewController {
             reviewRepository.delete(review);
             return new ResponseEntity<Review>(HttpStatus.ACCEPTED);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Review>(HttpStatus.NOT_FOUND);
         }
     }
 
