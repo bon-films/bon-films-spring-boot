@@ -1,5 +1,7 @@
 package com.comp586.bonfilms.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -68,6 +70,12 @@ public class ReviewController {
         } else {
             return new ResponseEntity<Review>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("review/by-film-detail-{id}")
+    public List<Review> getReviewByFilmDetailId(@PathVariable("id") int id) {
+        List<Review> reviewByFilmDetail = new ArrayList<>(reviewRepository.findAllByFilmDetail(id));
+        return reviewByFilmDetail;
     }
 
 }
