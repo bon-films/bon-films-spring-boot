@@ -48,4 +48,5 @@ public class Review {
         this.userReviewedId = userReviewedId;
         this.filmDetail = Integer.parseInt(filmDetail);
     }
+
 }

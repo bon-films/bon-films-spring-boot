@@ -2,6 +2,7 @@ package com.comp586.bonfilms.controllers;
 
 import com.comp586.bonfilms.dao.FilmDetailRepository;
 import com.comp586.bonfilms.models.FilmDetail;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class FilmDetailController {
     @Autowired
     private FilmDetailRepository filmDetailRepository;
 
-    @PostMapping("/new-film-listing")
+    @PostMapping("/create-film-detail")
     public ResponseEntity<FilmDetail> createReview(@RequestBody Map<String, String> body) throws Exception {
         FilmDetail filmDetail = new FilmDetail(body.get("filmName"), body.get("genre"), body.get("studio"),
                 body.get("director"), body.get("topBilling"), body.get("synopsis"));

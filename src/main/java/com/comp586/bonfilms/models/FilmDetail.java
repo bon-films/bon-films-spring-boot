@@ -40,7 +40,7 @@ public class FilmDetail {
     }
 
     public FilmDetail(String filmName, String genre, String studio, String director, String topBilling,
-                      String synopsis) {
+            String synopsis) {
         this.filmName = filmName;
         this.genre = genre;
         this.studio = studio;
