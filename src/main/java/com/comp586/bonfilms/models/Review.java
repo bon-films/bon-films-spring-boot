@@ -16,8 +16,8 @@ public class Review {
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
-    @Column(name = "film_name")
-    private String filmName;
+    // @Column(name = "film_name")
+    // private String filmName;
 
     @Column(name = "rating")
     private int rating;
@@ -28,25 +28,12 @@ public class Review {
     @Column(name = "user_reviewed_id")
     private String userReviewedId;
 
-    // @ManyToOne
-    // @JoinColumn(name = "film_detail_id", nullable = false)
-    @Column(name = "film_detail_id")
-    private int filmDetail;
+    @ManyToOne
+    @JoinColumn(name = "film_detail_id", nullable = false)
+    // @Column(name = "film_detail_id")
+    private FilmDetail filmDetail;
 
     @Column(name = "date_reviewed")
     @CreationTimestamp
     private Date dateReviewed;
-
-    public Review() {
-        super();
-    }
-
-    public Review(String filmName, String rating, String review, String userReviewedId, String filmDetail) {
-        this.filmName = filmName;
-        this.rating = Integer.parseInt(rating);
-        this.review = review;
-        this.userReviewedId = userReviewedId;
-        this.filmDetail = Integer.parseInt(filmDetail);
-    }
-
 }

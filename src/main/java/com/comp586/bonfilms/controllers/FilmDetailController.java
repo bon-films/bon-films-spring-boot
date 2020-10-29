@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -38,9 +37,10 @@ public class FilmDetailController {
     }
 
     @PostMapping("/film-detail/create")
-    public ResponseEntity<FilmDetail> createFilmDetail(@RequestBody Map<String, String> body) throws Exception {
-        FilmDetail filmDetail = new FilmDetail(body.get("filmName"), body.get("genre"), body.get("studio"),
-                body.get("director"), body.get("topBilling"), body.get("synopsis"));
+    public ResponseEntity<FilmDetail> createFilmDetail(@RequestBody FilmDetail filmDetail) throws Exception {
+        // FilmDetail filmDetail = new FilmDetail(body.get("filmName"),
+        // body.get("genre"), body.get("studio"),
+        // body.get("director"), body.get("topBilling"), body.get("synopsis"));
         return new ResponseEntity<FilmDetail>(filmDetailRepository.save(filmDetail), HttpStatus.CREATED);
     }
 
