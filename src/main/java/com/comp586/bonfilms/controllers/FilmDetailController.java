@@ -1,7 +1,7 @@
 package com.comp586.bonfilms.controllers;
 
-import com.comp586.bonfilms.dao.FilmDetailRepository;
 import com.comp586.bonfilms.models.FilmDetail;
+import com.comp586.bonfilms.repositories.FilmDetailRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

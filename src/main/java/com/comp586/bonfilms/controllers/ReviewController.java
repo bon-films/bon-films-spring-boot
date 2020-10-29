@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import com.comp586.bonfilms.dao.ReviewRepository;
 import com.comp586.bonfilms.models.Review;
+import com.comp586.bonfilms.repositories.ReviewRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.comp586.bonfilms.dao;
+package com.comp586.bonfilms.repositories;
 
 import java.util.List;
 
