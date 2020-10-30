@@ -34,9 +34,9 @@ public class Review {
     private String userReviewedId;
 
     @ManyToOne
-    @JoinColumn(name = "film_detail_id", nullable = false)
-    // @Column(name = "film_detail_id")
-    private FilmDetail filmDetail;
+    @JoinColumn(name = "film_id", nullable = false)
+    // @Column(name = "film_id")
+    private Film film;
 
     @Column(name = "date_reviewed")
     @CreationTimestamp
