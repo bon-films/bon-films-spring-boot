@@ -2,11 +2,17 @@ package com.comp586.bonfilms.models;
 
 import lombok.Data;
 
+import java.util.List;
+
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "film_details")
 @Data
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class FilmDetail {
 
     @Id
@@ -32,7 +38,7 @@ public class FilmDetail {
     @Column(name = "synopsis")
     private String synopsis;
 
-    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "filmDetail")
-    // private Set<Review> review;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "filmDetail")
+    private List<Review> reviews;
 
 }
