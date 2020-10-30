@@ -1,6 +1,7 @@
 package com.comp586.bonfilms.controllers;
 
 import com.comp586.bonfilms.models.FilmDetail;
+import com.comp586.bonfilms.models.Review;
 import com.comp586.bonfilms.repositories.FilmDetailRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -39,6 +41,17 @@ public class FilmDetailController {
     @PostMapping("/film-detail/create")
     public ResponseEntity<FilmDetail> createFilmDetail(@RequestBody FilmDetail filmDetail) throws Exception {
         return new ResponseEntity<FilmDetail>(filmDetailRepository.save(filmDetail), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/film-detail/{id}/reviews")
+    public ResponseEntity<List<Review>> getReviewsByFilmDetailId(@PathVariable("id") int id) {
+        Optional<FilmDetail> filmDetailData = filmDetailRepository.findById(id);
+        if (filmDetailData.isPresent()) {
+            List<Review> reviews = filmDetailData.get().getReviews();
+            return new ResponseEntity<List<Review>>(reviews, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<Review>>(HttpStatus.NOT_FOUND);
+        }
     }
 
 }
