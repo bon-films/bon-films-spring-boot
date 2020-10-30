@@ -26,8 +26,11 @@ public class FilmController {
     @Autowired
     private FilmRepository filmRepository;
 
-    // @GetMapping("/film")
-    // public ResponseEntity<Film> getAllFilms() { }
+    @GetMapping("/films")
+    public ResponseEntity<List<Film>> getAllFilms() {
+        List<Film> films = filmRepository.findAll();
+        return new ResponseEntity<List<Film>>(films, HttpStatus.OK);
+    }
 
     @GetMapping("/film/{id}")
     public ResponseEntity<Film> getFilmById(@PathVariable("id") int id) {

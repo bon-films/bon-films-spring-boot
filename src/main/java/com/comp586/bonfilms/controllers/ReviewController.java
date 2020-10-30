@@ -1,5 +1,6 @@
 package com.comp586.bonfilms.controllers;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -27,8 +28,11 @@ public class ReviewController {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    // @GetMapping("/reviews")
-    // public ResponseEntity<Review> getAllReviews() { }
+    @GetMapping("/reviews")
+    public ResponseEntity<List<Review>> getAllReviews() {
+        List<Review> reviews = reviewRepository.findAll();
+        return new ResponseEntity<List<Review>>(reviews, HttpStatus.OK);
+    }
 
     @GetMapping("/review/{id}")
     public ResponseEntity<Review> getReviewById(@PathVariable("id") int id) {

@@ -5,15 +5,11 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import java.sql.Date;
 
 @Entity
 @Table(name = "reviews")
 @Data
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Review {
 
     @Id

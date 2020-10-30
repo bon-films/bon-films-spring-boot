@@ -20,8 +20,8 @@ public class Film {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "film_name")
-    private String filmName;
+    // @Column(name = "film_name")
+    // private String filmName;
 
     @Column(name = "genre")
     private String genre;
