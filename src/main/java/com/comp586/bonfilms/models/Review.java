@@ -17,9 +17,6 @@ public class Review {
     @Column(name = "id", unique = true, nullable = false)
     private int id;
 
-    // @Column(name = "film_name")
-    // private String filmName;
-
     @Column(name = "rating")
     private int rating;
 
