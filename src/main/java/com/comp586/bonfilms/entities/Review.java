@@ -1,4 +1,4 @@
-package com.comp586.bonfilms.models;
+package com.comp586.bonfilms.entities;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

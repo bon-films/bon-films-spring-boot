@@ -3,7 +3,7 @@ package com.comp586.bonfilms.controllers;
 import java.util.Map;
 import java.util.Optional;
 
-import com.comp586.bonfilms.models.Review;
+import com.comp586.bonfilms.entities.Review;
 import com.comp586.bonfilms.repositories.ReviewRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

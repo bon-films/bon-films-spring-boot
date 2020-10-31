@@ -1,7 +1,7 @@
 package com.comp586.bonfilms.controllers;
 
-import com.comp586.bonfilms.models.Film;
-import com.comp586.bonfilms.models.Review;
+import com.comp586.bonfilms.entities.Film;
+import com.comp586.bonfilms.entities.Review;
 import com.comp586.bonfilms.repositories.FilmRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
