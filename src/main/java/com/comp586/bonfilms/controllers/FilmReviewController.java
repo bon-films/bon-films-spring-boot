@@ -32,8 +32,8 @@ public class FilmReviewController {
         reviewRepository.findAll().forEach(review -> {
             int id = review.getFilm().getId();
             String title = filmRepository.findById(id).get().getTitle();
-            filmReviews.add(new FilmReview(review.getRating(), review.getReview(), review.getUserReviewedId(), title,
-                    review.getDateReviewed()));
+            filmReviews.add(new FilmReview(review.getId(), review.getRating(), review.getReview(),
+                    review.getUserReviewedId(), title, review.getDateReviewed()));
         });
         return new ResponseEntity<List<FilmReview>>(filmReviews, HttpStatus.ACCEPTED);
     }
