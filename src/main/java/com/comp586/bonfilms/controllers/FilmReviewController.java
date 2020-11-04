@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.comp586.bonfilms.models.FilmReview;
-import com.comp586.bonfilms.repositories.FilmRepository;
-import com.comp586.bonfilms.repositories.ReviewRepository;
+import com.comp586.bonfilms.services.FilmService;
+import com.comp586.bonfilms.services.ReviewService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,17 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class FilmReviewController {
 
     @Autowired
-    ReviewRepository reviewRepository;
+    ReviewService reviewService;
 
     @Autowired
-    FilmRepository filmRepository;
+    FilmService filmService;
 
     @GetMapping("/reviews")
     public ResponseEntity<List<FilmReview>> getAllReviews() {
         List<FilmReview> filmReviews = new ArrayList<>();
-        reviewRepository.findAll().forEach(review -> {
+        reviewService.getAllReviews().forEach(review -> {
             int id = review.getFilm().getId();
-            String title = filmRepository.findById(id).get().getTitle();
+            String title = filmService.getFilm(id).getTitle();
             filmReviews.add(new FilmReview(review.getId(), review.getRating(), review.getReview(),
                     review.getUserReviewedId(), title, review.getDateReviewed()));
         });

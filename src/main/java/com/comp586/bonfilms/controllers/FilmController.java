@@ -2,7 +2,7 @@ package com.comp586.bonfilms.controllers;
 
 import com.comp586.bonfilms.entities.Film;
 import com.comp586.bonfilms.entities.Review;
-import com.comp586.bonfilms.repositories.FilmRepository;
+import com.comp586.bonfilms.services.FilmService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
@@ -24,19 +23,19 @@ import java.util.Optional;
 public class FilmController {
 
     @Autowired
-    private FilmRepository filmRepository;
+    private FilmService filmService;
 
     @GetMapping("/films")
     public ResponseEntity<List<Film>> getAllFilms() {
-        List<Film> films = filmRepository.findAll();
+        List<Film> films = filmService.getAllFilms();
         return new ResponseEntity<List<Film>>(films, HttpStatus.OK);
     }
 
     @GetMapping("/film/{id}")
     public ResponseEntity<Film> getFilmById(@PathVariable("id") int id) {
-        Optional<Film> filmData = filmRepository.findById(id);
-        if (filmData.isPresent()) {
-            return new ResponseEntity<Film>(filmData.get(), HttpStatus.OK);
+        Film filmData = filmService.getFilm(id);
+        if (filmData != null) {
+            return new ResponseEntity<Film>(filmData, HttpStatus.OK);
         } else {
             return new ResponseEntity<Film>(HttpStatus.NOT_FOUND);
         }
@@ -44,14 +43,14 @@ public class FilmController {
 
     @PostMapping("/film/create")
     public ResponseEntity<Film> createFilm(@RequestBody Film film) throws Exception {
-        return new ResponseEntity<Film>(filmRepository.save(film), HttpStatus.CREATED);
+        return new ResponseEntity<Film>(filmService.saveFilm(film), HttpStatus.CREATED);
     }
 
     @GetMapping("/film/{id}/reviews")
     public ResponseEntity<List<Review>> getReviewsByFilmId(@PathVariable("id") int id) {
-        Optional<Film> filmData = filmRepository.findById(id);
-        if (filmData.isPresent()) {
-            List<Review> reviews = filmData.get().getReviews();
+        Film filmData = filmService.getFilm(id);
+        if (filmData != null) {
+            List<Review> reviews = filmData.getReviews();
             return new ResponseEntity<List<Review>>(reviews, HttpStatus.OK);
         } else {
             return new ResponseEntity<List<Review>>(HttpStatus.NOT_FOUND);
