@@ -4,7 +4,6 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-
 import java.sql.Date;
 
 @Entity

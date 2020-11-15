@@ -1,13 +1,11 @@
 package com.comp586.bonfilms.entities;
 
-import lombok.Data;
-
-import java.util.List;
-
-import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "films")

@@ -1,6 +1,8 @@
 package com.comp586.bonfilms.impls;
 
-import java.util.List;
+import com.comp586.bonfilms.entities.Review;
+import com.comp586.bonfilms.services.ReviewService;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,11 +10,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
-
-import com.comp586.bonfilms.entities.Review;
-import com.comp586.bonfilms.services.ReviewService;
-
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service("reviewServiceImpl")
 public class ReviewServiceImpl implements ReviewService {

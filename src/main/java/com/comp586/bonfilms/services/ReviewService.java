@@ -1,22 +1,21 @@
 package com.comp586.bonfilms.services;
 
-import java.util.List;
-
 import com.comp586.bonfilms.entities.Review;
-
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public interface ReviewService {
 
-    public List<Review> getAllReviews();
+    List<Review> getAllReviews();
 
-    public Review getReview(int id);
+    Review getReview(int id);
 
-    public Review saveReview(Review review);
+    Review saveReview(Review review);
 
-    public Review updateReview(Review review);
+    Review updateReview(Review review);
 
-    public Review deleteReview(Review review);
+    Review deleteReview(Review review);
 
 }
