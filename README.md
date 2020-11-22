@@ -21,5 +21,5 @@ https://github.com/bon-films/bon-films-front-end
 - Two tables that are joined together using JPA/Hibernate
 - Docker MySQL Server for database 
 - Custom Dockerfile for easy hosting
-- AWS EC2 to host Docker containers with nginx proividing the web server
+- AWS EC2 to host Docker containers with NGINX proividing the web server
 - Cloudfare for HTTPS certificate
